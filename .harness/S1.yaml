@@ -30,3 +30,28 @@ pipeline:
                         - account._account_all_users
                     approverInputs: []
         tags: {}
+    - stage:
+        name: s123
+        identifier: s123
+        description: ""
+        type: Approval
+        spec:
+          execution:
+            steps:
+              - step:
+                  name: s1234
+                  identifier: s1234
+                  type: HarnessApproval
+                  timeout: 1d
+                  spec:
+                    approvalMessage: |-
+                      Please review the following information
+                      and approve the pipeline progression
+                    includePipelineExecutionHistory: true
+                    approvers:
+                      minimumCount: 1
+                      disallowPipelineExecutor: false
+                      userGroups:
+                        - account._account_all_users
+                    approverInputs: []
+        tags: {}
